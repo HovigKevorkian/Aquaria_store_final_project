@@ -1,0 +1,32 @@
+{
+  "name": "final_project",
+  "version": "1.0.0",
+  "description": "my warmup for Codi's final project",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "back": "cd back && npm start",
+    "front": "cd front && npm start",
+    "start": "concurrently --kill-others-on-fail --names \"back,front\" \"npm run back\" \"npm run front\"",
+    "postinstall":"cd front && npm install && cd .. && cd back && npm install"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/HovigKevorkian/final_project.git"
+  },
+  "keywords": [
+    "E-commerce"
+  ],
+  "author": "H.K.K",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/HovigKevorkian/final_project/issues"
+  },
+  "homepage": "https://github.com/HovigKevorkian/final_project#readme",
+  "dependencies": {
+    "concurrently": "^4.1.2"
+  }
+
+ 
+
+}
