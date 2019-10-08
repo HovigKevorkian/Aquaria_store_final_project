@@ -1,5 +1,6 @@
 import express from 'express'
 import cookieParser from 'cookie-parser' // parses cookies
+import bodyParser from 'body-parser';
 import session from 'express-session' // parses sessions
 import favicon from 'serve-favicon' // serves favicon
 import cors from 'cors' // allows cross-domain requests
@@ -18,6 +19,8 @@ app.use(cors()); // allows cross domain requests
 app.use(express.json()); // allows POST requests with JSON
 app.use(express.urlencoded({ extended: false })); // allows POST requests with GET-like parameters
 app.use(cookieParser()); // Parses cookies
+app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.json());
 app.use(favicon(path.join(__dirname, '../public', 'favicon.ico'))) // <-- location of favicon
 app.use(express.static(path.join(__dirname, '../public'))); // <-- location of public dir
 

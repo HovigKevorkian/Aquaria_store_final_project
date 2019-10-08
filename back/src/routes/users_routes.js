@@ -1,16 +1,16 @@
 const express = require('express');
-
 const router = express.Router();
 import initializeUsers from '../controllers/users'
 
-const users_routs = async ()=> {
+const users_routes = async ()=> {
 const controller_users = await initializeUsers();
+
  router.get('/',(req, res, next) =>{
     res.json({success: true, message:"ok users"});
- })
+ });
+
   router.get('/list', async (req, res, next) => {
     try {
-      
       const result = await controller_users.getUsersList();
       res.json({success: true, result});
       return (result);
@@ -19,7 +19,6 @@ const controller_users = await initializeUsers();
       next(err);
     }
   });
-  
   
   router.get('/:id', async (req, res, next) => {
     try {
@@ -31,9 +30,7 @@ const controller_users = await initializeUsers();
     }
   });
   
-  
-  router.post('/:id', async (req, res, next) => {
-    
+  router.delete('/:id', async (req, res, next) => {
     try {
       const {id} = req.params;
       const result = await controller_users.deleteUsers(id);
@@ -44,22 +41,23 @@ const controller_users = await initializeUsers();
     }
   });
   
-  
   router.patch('/:id', async (req, res, next) => {
-    
     try {
+      const user_id = req.params.id;
       const userUpdate = {
-          user_id: req.params.id,
-          first_name: req.body.first_name,
-           last_name: req.body.last_name,
-            email: req.body.email,
-             password: req.body.password,
-              phone_number: req.body.phone_number,
-               address: req.body.address, 
-               postal_code: req.body.postal_code, 
-               city: req.body.city
+        first_name: req.body.first_name,
+        last_name: req.body.last_name,
+         email: req.body.email,
+         phone_number: req.body.phone_number,
+          password: req.body.password,
+            country: req.body.country, 
+            city: req.body.city,
+            postal_code: req.body.postal_code, 
+            street: req.body.street, 
+            unit: req.body.unit
             };
-      const result = await controller_users.updateUsers(userUpdate);
+            console.log("userUpdate:", userUpdate);
+      const result = await controller_users.updateUsers(user_id, userUpdate);
       res.json({success: true, result});
       return (result);
     } catch (err) {
@@ -73,12 +71,15 @@ const controller_users = await initializeUsers();
         first_name: req.body.first_name,
          last_name: req.body.last_name,
           email: req.body.email,
+          phone_number: req.body.phone_number,
            password: req.body.password,
-            phone_number: req.body.phone_number,
-             address: req.body.address, 
+             country: req.body.country, 
+             city: req.body.city,
              postal_code: req.body.postal_code, 
-             city: req.body.city
+             street: req.body.street, 
+             unit: req.body.unit
             };
+         
       const result = await controller_users.createUsers(userCreate);
       res.json({success: true, result});
     } catch (err) {
@@ -86,9 +87,8 @@ const controller_users = await initializeUsers();
     }
   }); 
 
-  
 }
-users_routs()
+users_routes()
 export default router;
 
   
