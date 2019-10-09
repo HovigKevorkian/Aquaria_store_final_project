@@ -6,6 +6,7 @@ import categories_routes from "./routes/categories_routes";
 import products_routes from "./routes/products_routes";
 import orders_routes from "./routes/orders_routes";
 import orders_details_routes from "./routes/orders_details_routes";
+import delivery_addresses_routes from "./routes/delivery_addresses_routes";
 //Please, don't forget to change the directory you are importing the routes from, accordingly
 
 const start = async () => {
@@ -14,6 +15,7 @@ const start = async () => {
   app.use("/products", products_routes);
   app.use("/orders", orders_routes);
   app.use("/orders_details", orders_details_routes);
+  app.use("/delivery_addresses", delivery_addresses_routes);
   app.get("/", (req, res, next) => {
     res.json({ success: true, message: "ok " });
   });

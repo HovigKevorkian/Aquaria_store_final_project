@@ -35,7 +35,7 @@ const Orders = async () => {
   };
 
   const createOrders = async props => {
-    console.log("hellossssssssss")
+    console.log("hellossssssssss");
     const {
       user_id,
       status,
@@ -82,9 +82,7 @@ const Orders = async () => {
 
   const deleteOrders = async id => {
     try {
-      const result = await db.run(
-        `Delete FROM orders where order_id = ${id}`
-      );
+      const result = await db.run(`Delete FROM orders where order_id = ${id}`);
       if (result.stmt.changes === 0) {
         throw new Error(`could not delete order with id = ${id} or wrong id`);
       }
