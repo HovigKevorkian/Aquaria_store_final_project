@@ -124,15 +124,10 @@ const Products = async () => {
            color=("${color}"),
            size=(${size}) 
            WHERE product_id=(${id})`;
-           console.log(stmt);
-
-      const result = await db.all(stmt)
-      console.log("error5000", result);
+      const result = await db.all(stmt);
       return result;
-      
     } catch (err) {
-      throw new Error(err,"Can't update product details");
-           
+      throw new Error(err, "Can't update product details");
     }
   };
 
