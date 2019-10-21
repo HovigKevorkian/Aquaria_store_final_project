@@ -1,46 +1,68 @@
-import React, { Component } from "react";
-import { MDBNavbar, MDBNavbarBrand, MDBNavbarNav, MDBNavItem, MDBNavLink, MDBNavbarToggler, MDBCollapse, MDBDropdown,
-MDBDropdownToggle, MDBDropdownMenu, MDBDropdownItem, MDBIcon } from "mdbreact";
-import { BrowserRouter as Router } from 'react-router-dom';
+import React from "react";
+import { Link } from 'react-router-dom'
+import {
+  MDBNavbar,
+  MDBNavbarBrand,
+  MDBNavbarNav,
+  MDBNavItem,
+  MDBNavLink,
+  MDBNavbarToggler,
+  MDBCollapse,
+  MDBDropdown,
+  MDBDropdownToggle,
+  MDBDropdownMenu,
+  MDBDropdownItem,
+  MDBIcon
+} from "mdbreact";
+import { BrowserRouter as Router } from "react-router-dom";
+import "./header.css";
+class Header extends React.Component {
+  state = {
+    isOpen: true
+  };
 
-class Header extends Component {
-state = {
-  isOpen: false
-};
+  toggleCollapse = () => {
+    this.setState({ isOpen: !this.state.isOpen });
+  };
 
-toggleCollapse = () => {
-  this.setState({ isOpen: !this.state.isOpen });
-}
-
-render() {
-  return (
-    <Router>
-      <MDBNavbar color="default-color" dark expand="md">
-        <MDBNavbarBrand>
-          <strong className="white-text">Navbar</strong>
-        </MDBNavbarBrand>
+  render() {
+    return (
+      <MDBNavbar className="NavBar" color="default-color" dark expand="md">
         <MDBNavbarToggler onClick={this.toggleCollapse} />
         <MDBCollapse id="navbarCollapse3" isOpen={this.state.isOpen} navbar>
           <MDBNavbarNav left>
-            <MDBNavItem active>
-              <MDBNavLink to="#!">Home</MDBNavLink>
+            <MDBNavbarBrand>
+              <MDBNavLink to="/">
+                <strong className="white-text">Aqua Pet</strong>
+              </MDBNavLink>
+            </MDBNavbarBrand>
+
+            <MDBNavItem>
+              <MDBNavLink to="/shop">Shop</MDBNavLink>
             </MDBNavItem>
             <MDBNavItem>
-              <MDBNavLink to="#!">Features</MDBNavLink>
+              <MDBNavLink to="/contactus">Contact Us</MDBNavLink>
             </MDBNavItem>
             <MDBNavItem>
-              <MDBNavLink to="#!">Pricing</MDBNavLink>
+              <MDBNavLink to="checkout">Checkout</MDBNavLink>
+            </MDBNavItem>
+            <MDBNavItem>
+              <MDBNavLink to="/card">Pricing</MDBNavLink>
             </MDBNavItem>
             <MDBNavItem>
               <MDBDropdown>
                 <MDBDropdownToggle nav caret>
-                  <div className="d-none d-md-inline">Dropdown</div>
+                  <div className="d-none d-md-inline">Shopgrup</div>
                 </MDBDropdownToggle>
                 <MDBDropdownMenu className="dropdown-default">
                   <MDBDropdownItem href="#!">Action</MDBDropdownItem>
                   <MDBDropdownItem href="#!">Another Action</MDBDropdownItem>
-                  <MDBDropdownItem href="#!">Something else here</MDBDropdownItem>
-                  <MDBDropdownItem href="#!">Something else here</MDBDropdownItem>
+                  <MDBDropdownItem href="#!">
+                    Something else here
+                  </MDBDropdownItem>
+                  <MDBDropdownItem href="#!">
+                    Something else here
+                  </MDBDropdownItem>
                 </MDBDropdownMenu>
               </MDBDropdown>
             </MDBNavItem>
@@ -64,15 +86,18 @@ render() {
                 <MDBDropdownMenu className="dropdown-default">
                   <MDBDropdownItem href="#!">Action</MDBDropdownItem>
                   <MDBDropdownItem href="#!">Another Action</MDBDropdownItem>
-                  <MDBDropdownItem href="#!">Something else here</MDBDropdownItem>
-                  <MDBDropdownItem href="#!">Something else here</MDBDropdownItem>
+                  <MDBDropdownItem href="#!">
+                    Something else here
+                  </MDBDropdownItem>
+                  <MDBDropdownItem href="#!">
+                    Something else here
+                  </MDBDropdownItem>
                 </MDBDropdownMenu>
               </MDBDropdown>
             </MDBNavItem>
           </MDBNavbarNav>
         </MDBCollapse>
       </MDBNavbar>
-    </Router>
     );
   }
 }

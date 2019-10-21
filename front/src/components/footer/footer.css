@@ -1,0 +1,17 @@
+.footer-left
+ {  
+    
+    display:flex;
+    flex-direction: row;
+    flex: wrap;
+    justify-content: space-evenly
+    
+}
+/* .container-fluid {
+    padding-right: 0px !important;
+    padding-left: 0px !important;
+} */
+/* .footer-column {
+    padding-right: 0px !important;
+    padding-left: 0px !important;
+} */

@@ -5,14 +5,16 @@
   "dependencies": {
     "@ishawnwang/withunmounted": "^1.0.1",
     "bootstrap": "^4.3.1",
+    "lodash.range": "^3.2.0",
     "mdbreact": "^4.21.0",
     "react": "^16.10.2",
     "react-bootstrap": "^1.0.0-beta.14",
+    "react-bootstrap-personalized-counter": "^1.0.6",
     "react-dom": "^16.10.2",
+    "react-items-carousel": "^2.8.0",
     "react-scripts": "0.9.5",
     "toastify": "^2.0.0"
   },
-  "devDependencies": {},
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",

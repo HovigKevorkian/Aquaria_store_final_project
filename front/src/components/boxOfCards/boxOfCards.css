@@ -1,0 +1,7 @@
+.box-of-cards-flexBox {
+    display: flex;
+    flex-direction: row;
+    flex: wrap;
+    /* justify-content: space-evenly */
+
+}

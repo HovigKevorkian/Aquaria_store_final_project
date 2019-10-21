@@ -1,20 +1,21 @@
 import React from "react";
-import HomePage from "./pages/homePage/homePage"
-import CategoriesSlider from "./components/categoriesSlider/categoriesSlider"
-import Card from "./components/card/card";
-import ContactUs from "./components/contactUs/contactUs";
-import ItemDetails from "./components/itemDetails/itemDetails"
+import { BrowserRouter as Router } from "react-router-dom";
 import { Switch, Route, withRouter } from "react-router-dom";
-import "react-toastify/dist/ReactToastify.min.css";
 import { ToastContainer, toast } from "react-toastify";
 import { pause, makeRequestUrl } from "./utils/utils.js";
-import Cart from "./components/cart/cart"
-
-
 import "./App.css";
+import "react-toastify/dist/ReactToastify.min.css";
+import HomePage from "./pages/homePage/homePage";
+import CategoriesSlider from "./components/categoriesSlider/categoriesSlider";
+import Card from "./components/card/card";
+import ContactUs from "./components/contactUs/contactUs";
+import ItemDetails from "./components/itemDetails/itemDetails";
+import Cart from "./components/cart/cart";
+import QuantityCounter from "./components/quantityCounter/quantityCounter";
 import ShopPage from "./pages/shopPage/shopPage";
-
-
+import Header from "./components/header/header";
+import CheckOutPage from "./components/checkOut/checkOut";
+import Footer from "./components/footer/footer";
 /**
  * @function makeUrl - generates a url with queries
  * @param {String} path the route
@@ -26,11 +27,14 @@ const makeUrl = (path, params) => {
 };
 
 class App extends React.Component {
+  state = {
+    products: []
+  };
   async componentDidMount() {
-    this.getContactsList();
+    this.getProductsList();
   }
 
-  getContactsList = async () => {
+  getProductsList = async () => {
     this.setState({ isLoading: true });
     try {
       const url = makeUrl("products/list");
@@ -59,21 +63,41 @@ class App extends React.Component {
   render() {
     return (
       <div>
-        <div>
-          {/* <Card {...this.props} /> */}
-          {/* <HomePage {...this.props} /> */}
-          <ShopPage {...this.props} />
- {/* <CategoriesSlider  /> */}
- {/* <ItemDetails {...this.props} /> */}
- {/* <Cart {...this.props}/> */}
-        </div>
-
-        {/* <div>
-          <ContactUs {...this.prosp} />
-        </div> */}
+        <Router>
+          <Header />
+          {/* <Switch>
+            <Route
+              path="/"
+              exact
+              render={props => (
+                <HomePage {...props} getProducts={this.getProductsList} />
+              )}
+            />
+            <Route
+              path="/shop"
+              render={props => (
+                <ShopPage {...props} products={this.state.products} />
+              )}
+            />
+            <Route
+              path="/contactus"
+              render={props => <ContactUs {...props} />}
+            />
+            <Route
+              path="/checkout"
+              render={props => <CheckOutPage {...props} />}
+            />
+          </Switch> */}
+          <div>
+            <Footer {...this.prosp} />
+           
+          </div>
+        </Router>
+        {/* <CheckOutPage {...this.props} /> */}
       </div>
     );
   }
 }
 
 export default App;
+
