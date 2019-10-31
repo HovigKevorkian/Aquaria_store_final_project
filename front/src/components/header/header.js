@@ -44,11 +44,11 @@ class Header extends React.Component {
               <MDBNavLink to="/contactus">Contact Us</MDBNavLink>
             </MDBNavItem>
             <MDBNavItem>
-              <MDBNavLink to="checkout">Checkout</MDBNavLink>
+              <MDBNavLink to="/checkout">Checkout</MDBNavLink>
             </MDBNavItem>
-            <MDBNavItem>
+            {/* <MDBNavItem>
               <MDBNavLink to="/card">Pricing</MDBNavLink>
-            </MDBNavItem>
+            </MDBNavItem> */}
             <MDBNavItem>
               <MDBDropdown>
                 <MDBDropdownToggle nav caret>

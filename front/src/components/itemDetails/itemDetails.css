@@ -14,4 +14,20 @@
     padding: 0.6em;
     padding-top: 2em;
     padding-bottom: 2em;
+    min-width: 310px;
+    min-width: 350px;
+}
+.item-details-container {
+    display: flex;
+    flex-direction: row;
+    flex: wrap
+}
+
+@media (min-width: 330px) {
+    .item-details-mid-coulmn {
+        min-width:330px;
+    }
+    .item-details-right-coulmn {
+        min-width:330px;
+    }
 }

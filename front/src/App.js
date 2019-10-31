@@ -65,7 +65,7 @@ class App extends React.Component {
       <div>
         <Router>
           <Header />
-          {/* <Switch>
+          <Switch>
             <Route
               path="/"
               exact
@@ -87,7 +87,7 @@ class App extends React.Component {
               path="/checkout"
               render={props => <CheckOutPage {...props} />}
             />
-          </Switch> */}
+          </Switch>
           <div>
             <Footer {...this.prosp} />
            
