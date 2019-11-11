@@ -14,8 +14,9 @@ import Cart from "./components/cart/cart";
 import QuantityCounter from "./components/quantityCounter/quantityCounter";
 import ShopPage from "./pages/shopPage/shopPage";
 import Header from "./components/header/header";
-import CheckOutPage from "./components/checkOut/checkOut";
+// import CheckOutPage from "./components/checkOut/checkOut";
 import Footer from "./components/footer/footer";
+import Pills from "./pages/checkOutPage/checkOutPage.js";
 /**
  * @function makeUrl - generates a url with queries
  * @param {String} path the route
@@ -32,6 +33,7 @@ class App extends React.Component {
   };
   async componentDidMount() {
     this.getProductsList();
+    this.deleteProducts();
   }
 
   getProductsList = async () => {
@@ -56,10 +58,56 @@ class App extends React.Component {
     }
   };
 
+  getOrderByUser = async () => {
+    this.setState({ isLoading: true });
+    try {
+      const url = makeUrl("orders/");
+      const response = await fetch(url);
+      await pause();
+      const answer = await response.json();
+      if (answer.success) {
+        toast("Contacts loaded!");
+        this.setState({ products: answer.result, isLoading: false });
+        console.log(answer);
+        console.log(this.state.products);
+      } else {
+        console.log();
+        this.setState({ error_message: answer.message, isLoading: false });
+      }
+    } catch (err) {
+      console.log("error", err);
+      this.setState({ error_message: err.message, isLoading: false });
+    }
+  };
+
+  deleteProducts = async id => {
+    this.setState({ isLoading: true });
+    try {
+      const response = await fetch(
+        `http://localhost:8080/products/delete/${id}`
+      );
+      await pause();
+      const answer = await response.json();
+      if (answer.success) {
+        const products = this.state.products.filter(
+          products => products.id !== id
+        );
+        toast(`product with id ${id} was successfully deleted!`);
+        this.setState({ products, isLoading: false, error_message: "" });
+      } else {
+        console.log();
+        this.setState({ error_message: answer.message, isLoading: false });
+      }
+    } catch (err) {
+      console.log("error", err);
+      this.setState({ error_message: err.message, isLoading: false });
+    }
+  };
+
   componentWillUnmount() {
     this.setState({ isLoading: false });
   }
-
+  
   render() {
     return (
       <div>
@@ -83,21 +131,24 @@ class App extends React.Component {
               path="/contactus"
               render={props => <ContactUs {...props} />}
             />
-            <Route
+            {/* <Route
               path="/checkout"
-              render={props => <CheckOutPage {...props} />}
+              render={props => <Pills {...props} />}
+            /> */}
+            <Route
+              path="/cart"
+              render={props => <Cart {...props} />}
             />
+            
           </Switch>
           <div>
             <Footer {...this.prosp} />
-           
           </div>
         </Router>
-        {/* <CheckOutPage {...this.props} /> */}
+       
       </div>
     );
   }
 }
 
 export default App;
-

@@ -46,6 +46,9 @@ class Header extends React.Component {
             <MDBNavItem>
               <MDBNavLink to="/checkout">Checkout</MDBNavLink>
             </MDBNavItem>
+            <MDBNavItem>
+              <MDBNavLink to="/cart">Cart</MDBNavLink>
+            </MDBNavItem>
             {/* <MDBNavItem>
               <MDBNavLink to="/card">Pricing</MDBNavLink>
             </MDBNavItem> */}

@@ -1,5 +1,13 @@
-/* 
+
 .item-card {
-    width: 100rem !important;
-    height: 200px;
-} */
+    width: 100rem ;
+    height: 150px;
+}
+
+.Product-card-image {
+   
+    height: 150px;
+}
+.product-card-body {
+   
+}
