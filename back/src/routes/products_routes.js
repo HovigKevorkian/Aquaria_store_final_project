@@ -6,7 +6,10 @@ import Products from "../controllers/products";
 import { pathToFileURL } from "url";
 
 const multerStores = multer.diskStorage({
-  destination: path.join(__dirname, "../../public/images")
+  destination: path.join(__dirname, "../../public/images"),
+  filename: function (req, file, cb) {
+    cb(null,   Date.now() + '-' + file.originalname)
+  }
 });
 const uplaod = multer({ storage: multerStores });
 
