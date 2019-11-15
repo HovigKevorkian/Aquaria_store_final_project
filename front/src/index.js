@@ -16,7 +16,8 @@ import Fetcher from "./utils/fetch/fetchApi"
 
 ReactDOM.render(
 //  <ProductsTableHooks />,
-//  <Card />,
- <Fetcher />,
+ <App />,
+//  <Fetcher />,
+// <Test />,
   document.getElementById('root')
 );

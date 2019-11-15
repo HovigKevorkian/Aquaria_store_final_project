@@ -16,16 +16,16 @@ import {
 } from "mdbreact";
 import ProductsTableHooks from "../../utils/fetch/fetchProducts"
 
-const Card = () => { 
+const Card = (props) => { 
 
-  const [{products, isLoading}, setProducts] = ProductsTableHooks()
+  // const [{products, isLoading}, setProducts] = ProductsTableHooks()
  
     
     return (
       <div className="box-of-cards-flexBox ">
       <MDBContainer fluid className="d-flex  flex-wrap">
         {
-        ProductsTableHooks().products.map(x => {
+        props.products.map(x => {
           return (
             <MDBCard
               className="m-2 card-item "
@@ -49,7 +49,7 @@ const Card = () => {
                 <MDBCardText>{x.description}</MDBCardText>
                 <span >Price: {x.price} $</span>
                 <div>
-              <MDBBtn className="btn aqua-gradient" onClick={ () => this.props.updateItemDetails(x.product_title, x.product_image_name, x.description, x.price)} >
+              <MDBBtn className="btn aqua-gradient-dark" onClick={ () => props.updateItemDetails(x.product_title, x.product_image_name, x.description, x.price)} >
               <a>
                 {" "}
                 

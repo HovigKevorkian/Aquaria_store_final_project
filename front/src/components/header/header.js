@@ -27,13 +27,13 @@ class Header extends React.Component {
 
   render() {
     return (
-      <MDBNavbar className="NavBar" color="default-color" dark expand="md">
+      <MDBNavbar className="NavBar"  color="aqua-gradient" dark expand="md">
         <MDBNavbarToggler onClick={this.toggleCollapse} />
         <MDBCollapse id="navbarCollapse3" isOpen={this.state.isOpen} navbar>
           <MDBNavbarNav left>
             <MDBNavbarBrand>
               <MDBNavLink to="/">
-                <strong className="white-text">Aqua Pet</strong>
+                <strong className="black-text">Aquaria</strong>
               </MDBNavLink>
             </MDBNavbarBrand>
 

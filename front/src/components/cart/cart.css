@@ -32,6 +32,28 @@
     justify-content:  center;
 }
 
+.cart-component-item-image {
+    max-width: 180px;
+}
+
+
+
+
+.cart-component-footer {
+    margin: 1rem;
+    
+}
+
+.cart-component-footer-details {
+    float:right;
+    margin-right: 3rem
+}
+.cart-hr {
+   
+    border: 0.15rem solid #0099CC;
+    border-radius: 5px;
+    
+}
 
 
 

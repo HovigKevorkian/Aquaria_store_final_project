@@ -29,11 +29,14 @@ const makeUrl = (path, params) => {
 
 class App extends React.Component {
   state = {
-    products: []
+    products: [],
+    orderDetailsById: []
+
+    // orderDetailsById: []
   };
   async componentDidMount() {
     this.getProductsList();
-    this.deleteProducts();
+    // this.getOrderDetailsById()
   }
 
   getProductsList = async () => {
@@ -80,6 +83,51 @@ class App extends React.Component {
     }
   };
 
+  getOrderDetailsById = async order_details_id => {
+    this.setState({ isLoading: true });
+    try {
+      const url = makeUrl(`orders_details/${order_details_id}`);
+      console.log(url);
+      const response = await fetch(url);
+      await pause();
+      const answer = await response.json();
+      if (answer.success) {
+        toast(" order details loaded!");
+        this.setState({ orderDetailsById: answer.result, isLoading: false });
+        console.log(response);
+        console.log("the details in app state are" ,answer.result);
+      } else {
+        console.log();
+        this.setState({ error_message: answer.message, isLoading: false });
+      }
+    } catch (err) {
+      console.log("error", err);
+      this.setState({ error_message: err.message, isLoading: false });
+    }
+  };
+
+  getTableDataById = async (routeName, IdInTable, arrayNameInState) => {
+    this.setState({ isLoading: true });
+    try {
+      const url = makeUrl(`${routeName}/${IdInTable}`);
+      const response = await fetch(url);
+      await pause();
+      const answer = await response.json();
+      if (answer.success) {
+        toast(" order details loaded!");
+        this.setState({ [arrayNameInState] : answer.response, isLoading: false });
+        console.log(response);
+        console.log(this.state.arrayNameInState);
+      } else {
+        console.log();
+        this.setState({ error_message: answer.message, isLoading: false });
+      }
+    } catch (err) {
+      console.log("error", err);
+      this.setState({ error_message: err.message, isLoading: false });
+    }
+  };
+
   deleteProducts = async id => {
     this.setState({ isLoading: true });
     try {
@@ -107,7 +155,7 @@ class App extends React.Component {
   componentWillUnmount() {
     this.setState({ isLoading: false });
   }
-  
+
   render() {
     return (
       <div>
@@ -118,18 +166,23 @@ class App extends React.Component {
               path="/"
               exact
               render={props => (
-                <HomePage {...props} getProducts={this.getProductsList} />
+                <HomePage {...props}
+                 getProducts={this.getProductsList}
+                 getTableDataById={this.getTableDataById}  />
               )}
             />
             <Route
               path="/shop"
               render={props => (
-                <ShopPage {...props} products={this.state.products} />
+                <ShopPage {...props} 
+                products={this.state.products}
+                getTableDataById={this.getTableDataById} />
               )}
             />
             <Route
               path="/contactus"
-              render={props => <ContactUs {...props} />}
+              render={props => <ContactUs {...props} 
+              getTableDataById={this.getTableDataById}/>}
             />
             {/* <Route
               path="/checkout"
@@ -137,15 +190,20 @@ class App extends React.Component {
             /> */}
             <Route
               path="/cart"
-              render={props => <Cart {...props} />}
+              render={props => (
+                <Cart
+                  {...props}
+                  getOrderDetailsById={this.getOrderDetailsById}
+                  orderDetailsById={this.state.orderDetailsById}
+                  getTableDataById={this.getTableDataById}
+                />
+              )}
             />
-            
           </Switch>
           <div>
             <Footer {...this.prosp} />
           </div>
         </Router>
-       
       </div>
     );
   }

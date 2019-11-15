@@ -86,7 +86,7 @@ class ItemDetails extends React.Component {
             </div>
 
             <div>
-              <MDBBtn className="btn aqua-gradient">
+              <MDBBtn className="btn aqua-gradient-dark">
                 <a>
                   {" "}
                   <i class="fas fa-cart-plus"></i> <span>Buy now</span>
@@ -95,7 +95,7 @@ class ItemDetails extends React.Component {
             </div>
 
             <div>
-              <MDBBtn className="btn aqua-gradient" onSubmit="">
+              <MDBBtn  className="btn aqua-gradient-dark" onSubmit="">
                 <a>
                   {" "}
                   <i class="fas fa-cart-plus"></i>

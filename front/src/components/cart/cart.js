@@ -1,75 +1,73 @@
 import React, { Component } from "react";
 import { MDBRow, MDBCard, MDBCardBody, MDBTooltip, MDBTable, MDBTableBody, MDBTableHead, MDBInput, MDBBtn, MDBFooter } from "mdbreact";
-
+import ProductsTableHooks from "../../utils/fetch/fetchProducts";
+import "./cart.css"
 class Cart extends Component {
-state = {
-  data: [
-      {
-        src: "https://mdbootstrap.com/img/Photos/Horizontal/E-commerce/Products/13.jpg",
-        title: "iPhone",
-        subTitle: "Apple",
-        color: "White",
-        price: "800",
-        qty: "2"
-      },
-      {
-        src: "https://mdbootstrap.com/img/Photos/Horizontal/E-commerce/Products/6.jpg",
-        title: "Headphones",
-        subTitle: "Sony",
-        color: "Red",
-        price: "200",
-        qty: "2"
-      },
-      {
-        src: "https://mdbootstrap.com/img/Photos/Horizontal/E-commerce/Products/1.jpg",
-        title: "iPad Pro",
-        subTitle: "Apple",
-        color: "Gold",
-        price: "600",
-        qty: "1"
-      },
-    ],
-    columns: [
-      {
-        label: '',
-        field: 'img',
-      },
-      {
-        label: <strong>Product</strong>,
-        field: 'product'
-      },
-      {
-        label: <strong>Color</strong>,
-        field: 'color'
-      },
-      {
-        label: <strong>Price</strong>,
-        field: 'price'
-      },
-      {
-        label: <strong>QTY</strong>,
-        field: 'qty'
-      },
-      {
-        label: <strong>Amount</strong>,
-        field: 'amount'
-      },
-      {
-        label: '',
-        field: 'button'
+
+  constructor(props) {
+        super(props);
+        this.state = {
+          products: [1],
+          orderDetailsById: [
+            {
+              src: "https://mdbootstrap.com/img/Photos/Horizontal/E-commerce/Products/13.jpg",
+              title: "iPhone",
+              subTitle: "Apple",
+              color: "White",
+              price: "800",
+              qty: "2"
+            },
+          ],
+          columns: [
+            {
+              label: '',
+              field: 'img',
+            },
+            {
+              label: <strong>Product </strong>,
+              field: 'product'
+            },
+            {
+              label: <strong>Color</strong>,
+              field: 'color'
+            },
+            {
+              label: <strong>Price</strong>,
+              field: 'price'
+            },
+            {
+              label: <strong>QTY</strong>,
+              field: 'qty'
+            },
+            {
+              label: <strong>Amount</strong>,
+              field: 'amount'
+            },
+            {
+              label: '',
+              field: 'button'
+            }
+        ]
+          
+        };
+        
       }
-  ]
-}
+      async componentDidMount() {
+        // this.props.getTableDataById(order, IdInTable, products)
+        // this.props.getOrderDetailsById(2)
+        // console.log("ok cart details", this.state.orderDetailsById )
+    }
+
 
 render() {
 
     const rows = [];
-    const { columns, data } = this.state;
+    const { columns, orderDetailsById } = this.state;
 
-    data.map(row => {
+    orderDetailsById.map(row => {
       return rows.push(
         {
-        'img': <img src={row.src} alt="" className=" img-fluid cart-component-item-image" />,
+        'img': <img src={row.src} alt="" className=" cart-component-item-image" />,
         'product': [<h5 className="mt-3" key={new Date().getDate + 1}><strong>{row.title}</strong></h5>, <p key={new
           Date().getDate} className="text-muted">{row.subTitle}</p>],
         'color': row.color,
@@ -93,26 +91,33 @@ render() {
       <MDBCard className="w-100">
         <MDBCardBody>
           <MDBTable className="product-table">
-            <MDBTableHead className="font-weight-bold" color="mdb-color lighten-5" columns={columns} />
+            <MDBTableHead className="font-weight-bold" color="info-color-dark" columns={columns} />
             <MDBTableBody rows={rows} />
           </MDBTable>
         </MDBCardBody>
         <MDBFooter>
            
                
-                <div className="cart-component-footer">
-                    <span><p>Total: 2000$</p></span>
-                    <div><MDBBtn> Proceed to checkout </MDBBtn></div>
-                </div>
+                
             
         </MDBFooter>
+     <hr className="cart-hr"></hr>
+        <div className="cart-component-footer">
+          <div className="cart-component-footer-details" >
+                    <span><p>Total: 2000$</p></span>
+                    <div><MDBBtn className="btn aqua-gradient-dark"> Proceed to checkout </MDBBtn></div>
+                    </div>
+                </div>
       </MDBCard>
+      
     </MDBRow>
     );
   }
 }
 
 export default Cart;
+
+
 
 // import React from "react";
 // import "./cart.css";
@@ -205,7 +210,8 @@ export default Cart;
 //   constructor(props) {
 //     super(props);
 //     this.state = {
-//       CurrentCategory: "processing"
+//       CurrentCategory: "processing",
+//       orderDetailsById: []
       
 //     };
 //   }
@@ -243,7 +249,7 @@ export default Cart;
 //         </div>
 //         <br /> <br />
 //         <div className="ViewOrders-Scrollbar">
-//           {this.state.Items.map(order => {
+//           {this.state.orderDetailsById.map(order => {
 //             if (order.status === this.state.CurrentCategory) {
 //               return (
 //                 <div>

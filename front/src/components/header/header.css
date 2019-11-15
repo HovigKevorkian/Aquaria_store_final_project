@@ -1,3 +1,10 @@
  .navbar .navbar-expand-md {
     padding: 0rem;
 }
+a {
+    color: black !important;
+    text-decoration: none !important;
+    font-size: 1.3rem;
+    font-weight: 500
+    
+}
