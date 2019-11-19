@@ -18,7 +18,7 @@ class HomePage extends React.Component {
       //       src="http://localhost:8080/images/anubias-barteri-var-barteri-tropica.jpg"
       //       className="home-hero-polygon-left "
       //     >
-           
+
       //     </img>
 
       //     <div className="home-hero-mid-section">
@@ -33,19 +33,30 @@ class HomePage extends React.Component {
       //     ></img>
       //   </div>
 
-        // {/* <CarouselPage {...this.props} /> */}
+      // {/* <CarouselPage {...this.props} /> */}
 
-      //   </div> 
+      //   </div>
       <div>
         <CarouselPage {...this.props} />
         <div>
-        
-        <div className="space"></div>
-        <img className="testing-image" src="http://localhost:8080/images/SDboRe.jpg"></img>
+          <div className="about-us-flex">
+            <div className="about-us-box">
+            <h2 > <strong>WHY CHOOSE US?</strong></h2>
+             <p className="about-us-flex-p">Here at Aquaria, we specialize in the care and
+            maintenance of tropical and freshwater fish, tanks and ponds. We
+            have a variety of essential and non-essential products. We customize
+            tanks and heads and can do repairs. Our selection is huge and always
+            up-to-date. Our on-floor staff is knowledgeable and friendly.
+            They'll take the time to assist you and answer your questions.</p>
+            </div>
+          </div>
+          <div className="space"></div>
+          <img
+            className="testing-image"
+            src="http://localhost:8080/images/SDboRe.jpg"
+          ></img>
+        </div>
       </div>
-      </div>
-     
-  
     );
   }
 }

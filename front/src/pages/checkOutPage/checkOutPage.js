@@ -1,10 +1,27 @@
 import React, { Component } from "react";
-import { MDBContainer, MDBRow, MDBCol, MDBTabPane, MDBTabContent, MDBNav, MDBNavItem, MDBNavLink } from "mdbreact";
+import {
+  MDBContainer,
+  MDBCol,
+  MDBRow,
+  MDBCard,
+  MDBCardBody,
+  MDBBtn,
+  MDBNav,
+  MDBNavItem,
+  MDBNavLink,
+  MDBTabPane,
+  MDBTabContent,
+  MDBSelect,
+  MDBSelectInput,
+  MDBSelectOption,
+  MDBSelectOptions,
+  activePill
+} from "mdbreact";
 
 class Pills extends Component {
   state = {
     items: {
-      default: "1",
+      default: "1"
     }
   };
 
@@ -18,79 +35,181 @@ class Pills extends Component {
       });
     }
   };
+  selectNextTab = () => {
+    this.setState({
+      activePill: (+this.state.activePill + 1).toString()
+    });
+  };
 
   render() {
     return (
-      <MDBContainer className="mt-4">
-          <MDBRow>
-            <MDBCol md="12">
-              <h2>Default</h2>
-              <MDBNav className="mt-5 nav-pills">
-                <MDBNavItem>
-                  <MDBNavLink to="#" active={this.state.items["default"] === "1"} onClick={this.togglePills("default", "1")} >
-                    Home
-                  </MDBNavLink>
-                </MDBNavItem>
-                <MDBNavItem>
-                  <MDBNavLink to="#" active={this.state.items["default"] === "2"} onClick={this.togglePills("default", "2")} >
-                    Profile
-                  </MDBNavLink>
-                </MDBNavItem>
-                <MDBNavItem>
-                  <MDBNavLink to="#" active={this.state.items["default"] === "3"} onClick={this.togglePills("default", "3")} >
-                    Contact
-                  </MDBNavLink>
-                </MDBNavItem>
-              </MDBNav>
-              <MDBTabContent activeItem={this.state.items["default"]}>
-                <MDBTabPane tabId="1">
-                  <p>
-                    Consequat occaecat ullamco amet non eiusmod nostrud dolore
-                    irure incididunt est duis anim sunt officia. Fugiat velit
-                    proident aliquip nisi incididunt nostrud exercitation
-                    proident est nisi. Irure magna elit commodo anim ex veniam
-                    culpa eiusmod id nostrud sit cupidatat in veniam ad. Eiusmod
-                    consequat eu adipisicing minim anim aliquip cupidatat culpa
-                    excepteur quis. Occaecat sit eu exercitation irure Lorem
-                    incididunt nostrud.
-                  </p>
-                </MDBTabPane>
-                <MDBTabPane tabId="2">
-                  <p>
-                    Ad pariatur nostrud pariatur exercitation ipsum ipsum culpa
-                    mollit commodo mollit ex. Aute sunt incididunt amet commodo
-                    est sint nisi deserunt pariatur do. Aliquip ex eiusmod
-                    voluptate exercitation cillum id incididunt elit sunt. Qui
-                    minim sit magna Lorem id et dolore velit Lorem amet
-                    exercitation duis deserunt. Anim id labore elit adipisicing
-                    ut in id occaecat pariatur ut ullamco ea tempor duis.
-                  </p>
-                </MDBTabPane>
-                <MDBTabPane tabId="3">
-                  <p>
-                    Est quis nulla laborum officia ad nisi ex nostrud culpa
-                    Lorem excepteur aliquip dolor aliqua irure ex. Nulla ut duis
-                    ipsum nisi elit fugiat commodo sunt reprehenderit laborum
-                    veniam eu veniam. Eiusmod minim exercitation fugiat irure ex
-                    labore incididunt do fugiat commodo aliquip sit id deserunt
-                    reprehenderit aliquip nostrud. Amet ex cupidatat excepteur
-                    aute veniam incididunt mollit cupidatat esse irure officia
-                    elit do ipsum ullamco Lorem. Ullamco ut ad minim do mollit
-                    labore ipsum laboris ipsum commodo sunt tempor enim
-                    incididunt. Commodo quis sunt dolore aliquip aute tempor
-                    irure magna enim minim reprehenderit. Ullamco consectetur
-                    culpa veniam sint cillum aliqua incididunt velit ullamco
-                    sunt ullamco quis quis commodo voluptate. Mollit nulla
-                    nostrud adipisicing aliqua cupidatat aliqua pariatur mollit
-                    voluptate voluptate consequat non.
-                  </p>
-                </MDBTabPane>
-              </MDBTabContent>
-            </MDBCol>
-          </MDBRow>
-        </MDBContainer>
-      );
-    }
+      <MDBContainer>
+        <MDBRow className="my-2" center>
+          <MDBCard className="w-100">
+            <MDBCardBody>
+              <MDBRow>
+                <MDBRow>
+                  <MDBCol lg="8">
+                    <MDBCol md="6" className="mb-4">
+                      <label htmlFor="firstName">First name</label>
+                      <input
+                        type="text"
+                        id="firstName"
+                        className="form-control"
+                      />
+                    </MDBCol>
+                    <MDBCol md="6" className="mb-2">
+                      <label htmlFor="lastName">Last name</label>
+                      <input
+                        type="text"
+                        id="lastName"
+                        className="form-control"
+                      />
+                    </MDBCol>
+                    <MDBCol>
+                      <div className="input-group mb-4">
+                        <div className="input-group-prepend">
+                          <span className="input-group-text" id="basic-addon1">
+                            @
+                          </span>
+                        </div>
+                        <input
+                          type="text"
+                          className="form-control py-0"
+                          placeholder="Username"
+                          aria-describedby="basic-addon1"
+                        />
+                      </div>
+                      <label htmlFor="email">Email (optional)</label>
+                      <input
+                        type="text"
+                        id="email"
+                        className="form-control mb-4"
+                        placeholder="youremail@example.com"
+                      />
+                      <label htmlFor="address">Address</label>
+                      <input
+                        type="text"
+                        id="address"
+                        className="form-control mb-4"
+                        placeholder="1234 Main St"
+                      />
+                      <label htmlFor="address-2">Address 2 (optional)</label>
+                      <input
+                        type="text"
+                        id="address-2"
+                        className="form-control mb-4"
+                        placeholder="Apartment or suite"
+                      />
+                    </MDBCol>
+                  </MDBCol>
+                  <MDBCol lg="4" md="10" sm="12">
+                    <MDBCard>
+                      <MDBCardBody>
+                        <h4 className="mb-4 mt-1 h5 text-center font-weight-bold">
+                          Summary
+                        </h4>
+                        <hr />
+                        <MDBRow>
+                          <MDBCol sm="8">
+                            MDBootstrap UI KIT (jQuery version) - License 6-10
+                            poeple + unlimited projects
+                          </MDBCol>
+                          <MDBCol sm="4">$ 2000</MDBCol>
+                        </MDBRow>
+                        <hr />
+                        <MDBRow>
+                          <MDBCol sm="8">Premium support - 2 years</MDBCol>
+                          <MDBCol sm="4">$ 200</MDBCol>
+                        </MDBRow>
+                        <hr />
+                        <MDBRow>
+                          <MDBCol sm="8">MDB Membership - 2 years</MDBCol>
+                          <MDBCol sm="4">$ 100</MDBCol>
+                        </MDBRow>
+                        <hr />
+                        <MDBRow>
+                          <MDBCol sm="8">
+                            <strong>Total</strong>
+                          </MDBCol>
+                          <MDBCol sm="4">
+                            <strong>$ 2300</strong>
+                          </MDBCol>
+                        </MDBRow>
+                      </MDBCardBody>
+                    </MDBCard>
+                  </MDBCol>
+                </MDBRow>
+                <MDBRow>
+                  <MDBCol lg="4" md="12" className="mb-4">
+                    <label htmlFor="country">Country</label>
+                    <select
+                      className="custom-select d-block w-100"
+                      id="country"
+                      required
+                    >
+                      <option>Choose...</option>
+                      <option>United States</option>
+                    </select>
+                    <div className="invalid-feedback">
+                      Please select a valid country.
+                    </div>
+                  </MDBCol>
+                  <MDBCol lg="4" md="6" className="mb-4">
+                    <label htmlFor="state">State</label>
+                    <select
+                      className="custom-select d-block w-100"
+                      id="state"
+                      required
+                    >
+                      <option>Choose...</option>
+                      <option>California</option>
+                    </select>
+                    <div className="invalid-feedback">
+                      Please provide a valid state.
+                    </div>
+                  </MDBCol>
+                  <MDBCol lg="4" md="6" className="mb-4">
+                    <label htmlFor="zip">Zip</label>
+                    <input
+                      type="text"
+                      className="form-control"
+                      id="zip"
+                      required
+                    />
+                    <div className="invalid-feedback">Zip code required.</div>
+                  </MDBCol>
+                </MDBRow>
+
+                <hr />
+                <div className="mb-1">
+                  <input
+                    type="checkbox"
+                    className="form-check-input filled-in"
+                    id="chekboxRules"
+                  />
+                  <label className="form-check-label" htmlFor="chekboxRules">
+                    I accept the terms and conditions
+                  </label>
+                </div>
+                <hr />
+                <MDBBtn
+                  gradient="aqua"
+                  size="lg"
+                  block
+                 
+                  onClick={this.selectNextTab}
+                >
+                  Next step
+                </MDBBtn>
+              </MDBRow>
+            </MDBCardBody>
+          </MDBCard>
+        </MDBRow>
+      </MDBContainer>
+    );
+  }
 }
 
 export default Pills;
+

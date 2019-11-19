@@ -14,10 +14,9 @@ import Cart from "./components/cart/cart";
 import QuantityCounter from "./components/quantityCounter/quantityCounter";
 import ShopPage from "./pages/shopPage/shopPage";
 import Header from "./components/header/header";
-// import CheckOutPage from "./components/checkOut/checkOut";
+import CheckOutPage from "././components/checkOut/checkOut"
 import Footer from "./components/footer/footer";
-import Pills from "./pages/checkOutPage/checkOutPage.js";
-/**
+import Pills from "./pages/checkOutPage/checkOutPage.js";/**
  * @function makeUrl - generates a url with queries
  * @param {String} path the route
  * @param {Object} params -  an object of parameters
@@ -184,10 +183,10 @@ class App extends React.Component {
               render={props => <ContactUs {...props} 
               getTableDataById={this.getTableDataById}/>}
             />
-            {/* <Route
+            <Route
               path="/checkout"
               render={props => <Pills {...props} />}
-            /> */}
+            />
             <Route
               path="/cart"
               render={props => (
@@ -197,6 +196,7 @@ class App extends React.Component {
                   orderDetailsById={this.state.orderDetailsById}
                   getTableDataById={this.getTableDataById}
                 />
+                
               )}
             />
           </Switch>

@@ -5,6 +5,16 @@ a {
     color: black !important;
     text-decoration: none !important;
     font-size: 1.3rem;
-    font-weight: 500
+    font-weight: 400;
+    
+}
+.Aquaria-text-logo {
+    font-size:  1.5rem;
+    
+}
+.navbar-dropdown {
+    background-color: transparent !important;
+}
+.navbar-dropdown-options {
     
 }

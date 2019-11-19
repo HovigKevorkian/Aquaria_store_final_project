@@ -1,6 +1,11 @@
+.home-page-carouse-web-view-inner {
+  display: block
+}
+.home-page-carouse-responsive-view-inner {
+  display: none;
+}
 .home-page-container {
   position: relative;
-  
 }
 .home-page-hero-container-flex {
   display: flex;
@@ -12,40 +17,92 @@
   height: 30rem;
 }
 .home-hero-mid-section {
-  width:20em;
+  width: 20em;
   font-size: 1rem;
-  padding-top: 10em
-  
+  padding-top: 10em;
 }
-.home-hero-mid-section-h1 {
-  /* margin-left: 0.4em ; */
-}
- .btn.aqua-gradient {
+
+.btn.aqua-gradient {
   color: black !important;
 }
 .home-hero-mid-section-header-button {
-  color: rgb(46, 214, 214)
+  color: rgb(46, 214, 214);
 }
 .home-hero-polygon-right {
-  width:40em;
+  width: 40em;
   height: 30em;
   clip-path: polygon(0 0, 100% 0, 100% 100%, 65% 100%, 0 30%);
 }
 .home-hero-polygon-left {
-width:30em;
-height: 30em;
+  width: 30em;
+  height: 30em;
 
-clip-path: polygon(0 0, 30% 0, 100% 100%, 0 100%);
+  clip-path: polygon(0 0, 30% 0, 100% 100%, 0 100%);
 }
 
 .home-hero-polygon-right-2 {
-  width:40em;
+  width: 40em;
   height: 30em;
   clip-path: polygon(0 0, 100% 0, 100% 100%, 50% 100%);
 }
 .home-hero-polygon-left-2 {
-  width:30em;
+  width: 30em;
   height: 30em;
-  
   clip-path: polygon(0 0, 30% 0, 100% 100%, 0 100%);
+}
+.home-page-carouse-responsive-view-inner-image {
+  width:100%;
+  height: 20rem;
+}
+.home-hero-mid-section-responsive-view-flex {
+  display: flex;
+  float: row;
+  background-color: rgb(0, 0, 0);
+  width: 100%;
+   height: auto;
+  justify-content: center;
+}
+
+
+@media (min-width: 0px) and (max-width: 1200px) {
+  /* .home-page-hero-container-flex {
+    flex-direction: column;
+    flex: wrap;
+    position: relative;
+    background-color: rgb(0, 0, 0);
+    width: 100rem;
+    height: 15rem;
+  } */
+  .home-page-carouse-web-view-inner {
+    display: none
   }
+  .home-page-carouse-responsive-view-inner {
+    display: block;
+  }
+  /* .home-hero-polygon-right {
+    display: none;
+    width: 30em;
+    height:50em;
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+  }
+  .home-hero-polygon-left {
+    display: none;
+    width:100em;
+    height:50em;
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+  }
+  
+  .home-hero-polygon-right-2 {
+    display: none;
+    width: 30em;
+    height:50em;
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+  }
+  .home-hero-polygon-left-2 {
+    display: none;
+    width:30em;
+    height:50em;
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+  } */
+
+}

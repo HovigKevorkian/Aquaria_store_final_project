@@ -1,8 +1,36 @@
 .space {
   width:100%;
-  height:5rem
+  height:5rem;
+  background-color: black;
 }
 .testing-image {
   width:100%;
-  height: 17rem;
+  
+}
+.about-us-flex {
+  display: flex;
+  background: url("http://localhost:8080/images/best-rocks-for-freshwater-aquarium.jpg");
+  
+
+  justify-content: center;
+}
+.h2 {
+  text-align: center;
+  font-size: 8eem;
+  font-weight: 600;
+}
+.about-us-box {
+  background-color: aqua ;
+opacity: 0.9;
+  border-radius: 25px;
+  width:70%;
+  height:auto;
+  margin:1.5rem;
+  margin-top: 3rem;
+  padding: 2rem;
+  text-align: center;
+}
+.about-us-flex-p {
+  font-size: 1.4em;
+  font-weight: 400;
 }

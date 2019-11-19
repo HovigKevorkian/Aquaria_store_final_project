@@ -27,13 +27,13 @@ class Header extends React.Component {
 
   render() {
     return (
-      <MDBNavbar className="NavBar"  color="aqua-gradient" dark expand="md">
+      <MDBNavbar className="NavBar navbar-dark"  color="aqua-gradient" dark expand="md">
         <MDBNavbarToggler onClick={this.toggleCollapse} />
-        <MDBCollapse id="navbarCollapse3" isOpen={this.state.isOpen} navbar>
+        <MDBCollapse id="navbarCollapse3 " isOpen={this.state.isOpen} navbar>
           <MDBNavbarNav left>
             <MDBNavbarBrand>
               <MDBNavLink to="/">
-                <strong className="black-text">Aquaria</strong>
+                <strong className="black-text Aquaria-text-logo">Aquaria</strong>
               </MDBNavLink>
             </MDBNavbarBrand>
 
@@ -55,10 +55,10 @@ class Header extends React.Component {
             <MDBNavItem>
               <MDBDropdown>
                 <MDBDropdownToggle nav caret>
-                  <div className="d-none d-md-inline">Shopgrup</div>
+                  <div className="d-none d-md-inline">Categories</div>
                 </MDBDropdownToggle>
-                <MDBDropdownMenu className="dropdown-default">
-                  <MDBDropdownItem href="#!">Action</MDBDropdownItem>
+                <MDBDropdownMenu className="dropdown-default navbar-dropdown">
+                  <MDBDropdownItem href="#!" className="navbar-dropdown-options">Action</MDBDropdownItem>
                   <MDBDropdownItem href="#!">Another Action</MDBDropdownItem>
                   <MDBDropdownItem href="#!">
                     Something else here

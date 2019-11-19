@@ -1,4 +1,14 @@
 import React from "react";
+
+import {
+  BrowserRouter as Router,
+  Switch,
+  Routel,
+  Link,
+  Redirect,
+  useHistory,
+  useLocation
+} from "react-router-dom";
 import { MDBBreadcrumb, MDBBreadcrumbItem, MDBContainer } from "mdbreact";
 
 const Breadcrumb = props => {
@@ -14,7 +24,7 @@ const Breadcrumb = props => {
         <MDBBreadcrumbItem active>Library</MDBBreadcrumbItem>
       </MDBBreadcrumb> */}
 
-      <MDBBreadcrumb bold uppercase color="cyan lighten-4">
+      <MDBBreadcrumb bold uppercase color="aqua-gradient" >
         <MDBBreadcrumbItem>Home</MDBBreadcrumbItem>
         <MDBBreadcrumbItem>Library</MDBBreadcrumbItem>
         <MDBBreadcrumbItem active>Data</MDBBreadcrumbItem>

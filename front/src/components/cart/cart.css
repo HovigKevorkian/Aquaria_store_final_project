@@ -49,13 +49,18 @@
     margin-right: 3rem
 }
 .cart-hr {
-   
-    border: 0.15rem solid #0099CC;
-    border-radius: 5px;
-    
+    width: 95%;
+    height: 0.13rem;
+    margin:auto;
+    background-color: grey
+}
+.cart-proceed-to-checkout-btn {
+    border-radius: 25px !important;
 }
 
-
+.cart-totaol-flow-right {
+    margin-left:4rem
+}
 
 
 /* .viewOrders-mapping {

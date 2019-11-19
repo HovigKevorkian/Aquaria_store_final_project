@@ -1,6 +1,7 @@
 import React from "react";
 import "./itemDetails.css";
 import QuantityCounter from "../quantityCounter/quantityCounter";
+import {Link} from "react-router-dom"
 import {
   MDBContainer,
   MDBRow,
@@ -20,7 +21,11 @@ class ItemDetails extends React.Component {
     super(props);
     this.state = {
       itemQuantity: 0
+
     };
+  }
+  componentDidMount() {
+     this.props.itemDetails
   }
 
   decrease = () => {
@@ -43,7 +48,7 @@ class ItemDetails extends React.Component {
             />
           </div>
           <div className="item-details-mid-coulmn">
-            <h4>
+            <h4 >
               <strong className="productDetaislTitle">
                 {this.props.itemDetails.product_title}
               </strong>
@@ -77,27 +82,27 @@ class ItemDetails extends React.Component {
             />
 
             <div>
-              <span>Shipping:</span>
+              <span> <strong>Shipping:</strong> </span>
               <br></br>
               <i>
                 <MDBIcon icon="truck" />
-              </i>{" "}
+              </i>
               Free shipping in Beruit and Matn
             </div>
 
             <div>
-              <MDBBtn className="btn aqua-gradient-dark">
-                <a>
-                  {" "}
+              <MDBBtn  gradient="aqua">
+                <Link to="/cart">
+                  
                   <i class="fas fa-cart-plus"></i> <span>Buy now</span>
-                </a>
+              </Link>
               </MDBBtn>
             </div>
 
             <div>
-              <MDBBtn  className="btn aqua-gradient-dark" onSubmit="">
+              <MDBBtn   gradient="aqua" onSubmit="">
                 <a>
-                  {" "}
+                
                   <i class="fas fa-cart-plus"></i>
                   <span> Add to cart</span>
                 </a>
@@ -109,20 +114,24 @@ class ItemDetails extends React.Component {
             <h4>
               <strong>Usually bought together:</strong>
             </h4>
+            <a>
             <img
               className="bought-together-pic"
               src="https://cdn.shopify.com/s/files/1/0311/3149/files/shutterstock_114224986.jpg?v=1544257582"
-            />
+            />  </a>
             <br></br>
+            <a>
             <img
+          
               className="bought-together-pic"
               src="https://thefishdoctor.co.uk/wp-content/uploads/2015/03/spade-leaf-plant-echinodorus-cordifolius.jpg"
-            />
+            /></a>
             <br></br>
+            <a>
             <img
               className="bought-together-pic"
               src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQkTTIpFxinoXCLmzcILFwl3qRXsviXlmdK8cgkcBmASg3U4cqR&s"
-            />
+            /></a>
           </div>
         </container>
       </MDBContainer>

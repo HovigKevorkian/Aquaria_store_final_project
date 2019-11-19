@@ -28,8 +28,8 @@ const Card = (props) => {
         props.products.map(x => {
           return (
             <MDBCard
-              className="m-2 card-item "
-              style={{ width: "18rem", height: "500px" }}
+              className="m-1 card-item "
+              style={{ width: "15rem", height: "400px" }}
               cascade
               ecommerce
               wide
@@ -43,27 +43,18 @@ const Card = (props) => {
                 waves
               />
               <MDBCardBody cascade className="text-center product-card-body">
-               <strong> <MDBCardTitle tag="h5">{x.product_title}</MDBCardTitle> </strong>
+               <strong> <MDBCardTitle    className="footer-media-icons" tag="h5">{x.product_title}</MDBCardTitle> </strong>
                 <MDBCardTitle>
                 </MDBCardTitle>
                 <MDBCardText>{x.description}</MDBCardText>
                 <span >Price: {x.price} $</span>
                 <div>
-              <MDBBtn className="btn aqua-gradient-dark" onClick={ () => props.updateItemDetails(x.product_title, x.product_image_name, x.description, x.price)} >
-              <a>
-                {" "}
-                
-              <span>More Details</span>
-              </a>  
+                  <a href="#top">
+              <MDBBtn  gradient="aqua" onClick={ () =>
+                 props.updateItemDetails(x.product_title, x.product_image_name, x.description, x.price)}>
+                 <strong>More Details</strong>
               </MDBBtn>
-              <MDBBtn
-                        tag="a"
-                        color="transparent"
-                        size="lg"
-                        className="p-1 m-0 mr-2 z-depth-0"
-                      >
-                        <MDBIcon icon="shopping-cart " />
-                      </MDBBtn>
+              </a>
             </div>
               </MDBCardBody>
             </MDBCard>
