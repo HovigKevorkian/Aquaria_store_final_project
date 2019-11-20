@@ -43,7 +43,7 @@ const Card = (props) => {
                 waves
               />
               <MDBCardBody cascade className="text-center product-card-body">
-               <strong> <MDBCardTitle    className="footer-media-icons" tag="h5">{x.product_title}</MDBCardTitle> </strong>
+               <strong> <MDBCardTitle    className="footer-media-icons product-card-title-override" tag="h5">{x.product_title}</MDBCardTitle> </strong>
                 <MDBCardTitle>
                 </MDBCardTitle>
                 <MDBCardText>{x.description}</MDBCardText>
