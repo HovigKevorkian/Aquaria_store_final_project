@@ -94,7 +94,7 @@ class ItemDetails extends React.Component {
               <MDBBtn  gradient="aqua">
                 <Link to="/cart">
                   
-                  <i class="fas fa-cart-plus"></i> <span>Buy now</span>
+                  <i class="fas fa-cart-plus"></i> <span>Buy  now</span>
               </Link>
               </MDBBtn>
             </div>
@@ -104,7 +104,7 @@ class ItemDetails extends React.Component {
                 <a>
                 
                   <i class="fas fa-cart-plus"></i>
-                  <span> Add to cart</span>
+                  <span> Add Cart</span>
                 </a>
               </MDBBtn>
             </div>

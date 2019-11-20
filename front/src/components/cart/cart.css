@@ -1,24 +1,23 @@
+.cart-container-webView {
+    display: block;
+}
+
 .ViewOrders-CardBody {
     display: flex;
     justify-content:  space-between;
     
 }
-
 .ViewOrders-CardButton {
     display: flex;
     justify-content: center;
     position: relative;
    top:12px;
 }
-
 .ViewOrders-Scrollbar {
     height: 32em;
     overflow-y: auto;
     white-space: nowrap;
-
-
 }
-
 .ViewOrders-Card {
     background-color: rgb(135, 206, 235,0.7);
     margin:25px;
@@ -33,12 +32,9 @@
 }
 
 .cart-component-item-image {
-    max-width: 180px;
+   width: 15rem; 
+   height: 10rem;  
 }
-
-
-
-
 .cart-component-footer {
     margin: 1rem;
     
@@ -52,6 +48,8 @@
     width: 95%;
     height: 0.13rem;
     margin:auto;
+    margin-top: 1.5rem;
+    margin-bottom: 1rem;
     background-color: grey
 }
 .cart-proceed-to-checkout-btn {
@@ -59,10 +57,46 @@
 }
 
 .cart-totaol-flow-right {
-    margin-left:4rem
+    margin-left:4rem;
+    font-weight:500
+}
+.cart-header-mobile {
+    width:90rem;
+    margin:auto
+}
+.cart-responsive-view-details-flex {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
 }
 
-
+.cart-responsive-view-price {
+    font-size: 1.1rem;
+    font-weight: 500;
+}
+.cart-responsive-view-form-subtotal {
+    font-size: 1.2rem;
+    font-weight: 600;
+}
+.cart-component-footer-responsive {
+    width:100%;
+    display: flex;
+    justify-content: center;
+}
+.cart-component-footer-details-responsive {
+    width: 250px;
+}
+.cart-responsive-view-form {
+    margin-top: -2rem
+}
+.cart-responsive-view-form-input {
+    width:3.6rem !important;
+    text-align: center;
+    font-size: 1rem !important;
+    font-weight: 600 !important;
+    background-image:
+    linear-gradient(40deg, #7dbff8, #05ffa3) !important;
+}
 /* .viewOrders-mapping {
     display: flex !important; 
     flex-direction: row !important;

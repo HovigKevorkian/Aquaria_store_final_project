@@ -17,6 +17,7 @@ import {
   MDBSelectOptions,
   activePill
 } from "mdbreact";
+import "./checkOutPage.css"
 
 class Pills extends Component {
   state = {
@@ -48,6 +49,7 @@ class Pills extends Component {
           <MDBCard className="w-100">
             <MDBCardBody>
               <MDBRow>
+                <MDBContainer fluid>
                 <MDBRow>
                   <MDBCol lg="8">
                     <MDBCol md="6" className="mb-4">
@@ -140,68 +142,69 @@ class Pills extends Component {
                     </MDBCard>
                   </MDBCol>
                 </MDBRow>
-                <MDBRow>
-                  <MDBCol lg="4" md="12" className="mb-4">
-                    <label htmlFor="country">Country</label>
-                    <select
-                      className="custom-select d-block w-100"
-                      id="country"
-                      required
-                    >
-                      <option>Choose...</option>
-                      <option>United States</option>
-                    </select>
-                    <div className="invalid-feedback">
-                      Please select a valid country.
-                    </div>
-                  </MDBCol>
-                  <MDBCol lg="4" md="6" className="mb-4">
-                    <label htmlFor="state">State</label>
-                    <select
-                      className="custom-select d-block w-100"
-                      id="state"
-                      required
-                    >
-                      <option>Choose...</option>
-                      <option>California</option>
-                    </select>
-                    <div className="invalid-feedback">
-                      Please provide a valid state.
-                    </div>
-                  </MDBCol>
-                  <MDBCol lg="4" md="6" className="mb-4">
-                    <label htmlFor="zip">Zip</label>
+            
+                  <MDBRow>
+                    <MDBCol lg="4" md="12" className="mb-4">
+                      <label htmlFor="country">Country</label>
+                      <select
+                        className="custom-select d-block w-100"
+                        id="country"
+                        required
+                      >
+                        <option>Choose...</option>
+                        <option>United States</option>
+                      </select>
+                      <div className="invalid-feedback">
+                        Please select a valid country.
+                      </div>
+                    </MDBCol>
+                    <MDBCol lg="4" md="6" className="mb-4">
+                      <label htmlFor="state">State</label>
+                      <select
+                        className="custom-select d-block w-100"
+                        id="state"
+                        required
+                      >
+                        <option>Choose...</option>
+                        <option>California</option>
+                      </select>
+                      <div className="invalid-feedback">
+                        Please provide a valid state.
+                      </div>
+                    </MDBCol>
+                    <MDBCol lg="4" md="6" className="mb-4">
+                      <label htmlFor="zip">Zip</label>
+                      <input
+                        type="text"
+                        className="form-control"
+                        id="zip"
+                        required
+                      />
+                      <div className="invalid-feedback">Zip code required.</div>
+                    </MDBCol>
+                  </MDBRow>
+                  <hr />
+                  <div className="margining">
                     <input
-                      type="text"
-                      className="form-control"
-                      id="zip"
-                      required
+                      type="checkbox"
+                      className="form-check-input filled-in"
+                      id="chekboxRules"
                     />
-                    <div className="invalid-feedback">Zip code required.</div>
-                  </MDBCol>
-                </MDBRow>
-
-                <hr />
-                <div className="mb-1">
-                  <input
-                    type="checkbox"
-                    className="form-check-input filled-in"
-                    id="chekboxRules"
-                  />
-                  <label className="form-check-label" htmlFor="chekboxRules">
-                    I accept the terms and conditions
-                  </label>
-                </div>
-                <hr />
-                <MDBBtn
-                  gradient="aqua"
-                  size="lg"
-                  block
-                 
-                  onClick={this.selectNextTab}
-                >
-                  Next step
-                </MDBBtn>
+                    <label className="form-check-label" htmlFor="chekboxRules">
+                      I accept the terms and conditions
+                    </label>
+                  </div>
+                  <hr />
+                  <MDBBtn
+                    gradient="aqua"
+                    size="lg"
+                    className="font-weight-bold"
+                    block
+                    onClick={this.selectNextTab}
+                  >
+                    Confirm order
+                  </MDBBtn>
+                </MDBContainer>
               </MDBRow>
             </MDBCardBody>
           </MDBCard>
@@ -212,4 +215,3 @@ class Pills extends Component {
 }
 
 export default Pills;
-

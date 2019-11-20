@@ -12,30 +12,6 @@ class HomePage extends React.Component {
 
   render() {
     return (
-      // <div className="home-page-container">
-      //   <div className="home-page-hero-container-flex">
-      //     <img
-      //       src="http://localhost:8080/images/anubias-barteri-var-barteri-tropica.jpg"
-      //       className="home-hero-polygon-left "
-      //     >
-
-      //     </img>
-
-      //     <div className="home-hero-mid-section">
-      //       <div className="home-hero-mid-section-header-button">
-      //       <h1 className="home-hero-mid-section-h1">Aquaria</h1>
-      //       <MDBBtn  color="red-text" gradient="aqua" ><strong>Shop Now</strong></MDBBtn>
-      //       </div>
-      //     </div>
-      //     <img
-      //       src="http://localhost:8080/images/Jio5366.jpg"
-      //       className="home-hero-polygon-right"
-      //     ></img>
-      //   </div>
-
-      // {/* <CarouselPage {...this.props} /> */}
-
-      //   </div>
       <div>
         <CarouselPage {...this.props} />
         <div>

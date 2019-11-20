@@ -16,11 +16,16 @@
 }
 .h2 {
   text-align: center;
-  font-size: 8eem;
+  font-size: 8em;
   font-weight: 600;
 }
 .about-us-box {
-  background-color: aqua ;
+  background-image:
+    linear-gradient(40deg, #2096ff, #05ffa3);
+    /* linear-gradient(
+    to right,
+    #1e9df9, #16b9de, #0be6b9, #0EDDC0,#07f9a8, #07F9A9
+  ); */
 opacity: 0.9;
   border-radius: 25px;
   width:70%;
@@ -33,4 +38,22 @@ opacity: 0.9;
 .about-us-flex-p {
   font-size: 1.4em;
   font-weight: 400;
+}
+@media screen and (min-width: 0px) and (max-width: 900px) {
+  .h2 {
+    text-align: center;
+    font-size: 1em !important;
+    font-weight: 500;
+  }
+  .about-us-flex-p {
+    font-size: 0.9rem;
+  }
+  .about-us-box {
+    width:90%;
+    height:auto;
+    margin:1.5rem;
+    margin-top: 3rem;
+    padding: 2rem;
+    text-align: center;
+  }
 }

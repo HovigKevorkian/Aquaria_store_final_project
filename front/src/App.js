@@ -16,7 +16,9 @@ import ShopPage from "./pages/shopPage/shopPage";
 import Header from "./components/header/header";
 import CheckOutPage from "././components/checkOut/checkOut"
 import Footer from "./components/footer/footer";
-import Pills from "./pages/checkOutPage/checkOutPage.js";/**
+import Pills from "./pages/checkOutPage/checkOutPage.js";
+
+/**
  * @function makeUrl - generates a url with queries
  * @param {String} path the route
  * @param {Object} params -  an object of parameters
